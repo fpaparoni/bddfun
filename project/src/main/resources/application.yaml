@@ -1,0 +1,37 @@
+server:
+  port: 8088
+
+application:
+   title: BDDFun API
+   description: BDDFun API
+
+spring:
+   jpa.properties.hibernate:
+      ddl-auto: create
+      show_sql: true
+      use_sql_comments: true
+      format_sql: true
+   datasource:
+      url: jdbc:h2:mem:testdb;INIT=CREATE SCHEMA IF NOT EXISTS ACCERTAMENTO
+      username: sa
+      password: 
+
+springdoc:
+   swagger-ui.disable-swagger-default-url: false
+   override-with-generic-response: false
+
+management: 
+  endpoint:
+    health:
+      enabled: true
+    info:
+      enabled: true
+    metrics:
+      enabled: true
+    prometheus:
+      enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+        

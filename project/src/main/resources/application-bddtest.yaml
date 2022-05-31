@@ -1,0 +1,44 @@
+server:
+  port: 8088
+
+application:
+   title: BDDFun API
+   description: BDDFun API
+
+spring:
+   jpa:
+      hibernate:
+         ddl-auto: none
+         naming.physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+      properties.hibernate:
+         ddl-auto: none
+         show_sql: true
+         use_sql_comments: true
+         format_sql: true
+         default_schema: BDDFUN
+   datasource:
+      url: jdbc:postgresql://localhost:5432/bddfun
+      username: postgres
+      password: postgres
+      driverClassName: org.postgresql.Driver
+      initialization-mode: always
+
+springdoc:
+   swagger-ui.disable-swagger-default-url: false
+   override-with-generic-response: false
+
+management: 
+  endpoint:
+    health:
+      enabled: true
+    info:
+      enabled: true
+    metrics:
+      enabled: true
+    prometheus:
+      enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+        
