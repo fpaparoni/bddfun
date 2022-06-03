@@ -6,7 +6,6 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.context.TestConfiguration;
 import org.springframework.context.annotation.Bean;
 import org.springframework.test.context.ActiveProfiles;
-import org.testcontainers.containers.GenericContainer;
 import org.testcontainers.containers.PostgreSQLContainer;
 import org.testcontainers.utility.DockerImageName;
 
@@ -24,27 +23,26 @@ public class SpringBootTestLoader {
 	static PostgreSQLContainer postgresContainer;
 
 	/**
-	 * Setup iniziale del database
+	 * Initial database setup
 	 */
 	@BeforeAll
 	public static void setup() {
-		DockerImageName myImage = DockerImageName.parse("bddfundb").asCompatibleSubstituteFor("postgres");
+		System.out.println("starting DB");
+		DockerImageName myImage = DockerImageName.parse("bddfun-database").asCompatibleSubstituteFor("postgres");
 		postgresContainer = new PostgreSQLContainer(myImage)
 			       .withDatabaseName("bddfun")
 			       .withUsername("postgres")
 			       .withPassword("postgres");
-				//new PostgreSQLContainer<>(
-				//DockerImageName.parse("bddfundb").asCompatibleSubstituteFor("postgres"));
 		postgresContainer.start();
 		System.out.println(postgresContainer.getJdbcUrl());
 	}
 
 	/**
-	 * Configurazione dinamica per il datasource
+	 * Datasource dynamic configuration
 	 *
 	 */
 	@TestConfiguration
-	static class OracleTestConfiguration {
+	static class PostgresTestConfiguration {
 		@Bean
 		DataSource dataSource() {
 			HikariConfig hikariConfig = new HikariConfig();
@@ -56,7 +54,7 @@ public class SpringBootTestLoader {
 	}
 
 	/**
-	 * Spegnimento database
+	 * Shutdown
 	 */
 	@AfterAll
 	public static void tearDown() {
