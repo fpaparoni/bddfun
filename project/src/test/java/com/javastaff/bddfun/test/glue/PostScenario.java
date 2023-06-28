@@ -31,7 +31,11 @@ public class PostScenario extends BaseScenario {
 	@Given("an author with username {string} already saved")
 	public void alreadySavedAuthor(String username) {
 		if (authorRepository.findById(username).isEmpty()) {
-			Author author = Author.builder().username(username).build();
+			Author author = Author.builder()
+					.username(username)
+					.email("federico.paparoni@xyz.mail")
+					.bio("Federico Paparoni wants to write something about Cucumber & Testcontainer")
+					.build();
 			authorRepository.save(author);
 		}
 	}
