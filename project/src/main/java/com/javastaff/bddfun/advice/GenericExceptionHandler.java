@@ -3,7 +3,7 @@ package com.javastaff.bddfun.advice;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.validation.ConstraintViolationException;
+import jakarta.validation.ConstraintViolationException;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.validation.FieldError;

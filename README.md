@@ -7,3 +7,10 @@ To build the database:
 cd database
 docker build -t bddfun-database .
 ```
+
+In Dev Containers:
+```shell
+cd /usr/local/sdkman/candidates/java/
+rm current
+ln -s /usr/local/sdkman/candidates/java/21.0.7-ms current
+```
