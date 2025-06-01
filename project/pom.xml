@@ -14,7 +14,7 @@
 	<properties>
 		<java.version>11</java.version>
 		<spring-boot-version>2.6.7</spring-boot-version>
-		<lombok.version>1.18.20</lombok.version>
+		<lombok.version>1.18.30</lombok.version>
 		<maven.compiler.source>${java.version}</maven.compiler.source>
 		<maven.compiler.target>${java.version}</maven.compiler.target>
 		<springdoc.version>1.5.2</springdoc.version>
