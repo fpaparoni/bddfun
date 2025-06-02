@@ -21,7 +21,7 @@ import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 
 @RestController
-@RequestMapping("posts")
+@RequestMapping("/posts")
 public class PostResource {
 	@Autowired
 	private PostService postService;

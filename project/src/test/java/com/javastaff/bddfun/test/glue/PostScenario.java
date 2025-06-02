@@ -61,13 +61,18 @@ public class PostScenario extends BaseScenario {
 
 	@Given("the author with username {string}")
 	public void the_author_with_username(String username) {
-		Author author=Author.builder().username(username).build();
+		// Always provide a valid author object with all required fields
+		Author author = Author.builder()
+			.username(username)
+			.email(username + "@xyz.mail")
+			.bio("some bio")
+			.build();
 		postBuilder.author(author);
 	}
 
 	@When("I submit this post to save it")
 	public void i_submit_this_post_to_save_it() {
-		String path = POST_ENDPOINT + "/";
+		String path = POST_ENDPOINT;
 		cucumberContextHolder.setResponse(given().body(postBuilder.build()).contentType(ContentType.JSON)
 				.accept(ContentType.JSON).when().post(path));
 		// Reset for next build

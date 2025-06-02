@@ -38,7 +38,7 @@ public class AuthorScenario extends BaseScenario{
 
 	@When("I submit this information to save a new user")
 	public void i_submit_this_information_to_save_a_new_user() {
-		String path = AUTHOR_ENDPOINT + "/";
+		String path = AUTHOR_ENDPOINT;
 		cucumberContextHolder.setResponse(given().body(authorBuilder.build()).contentType(ContentType.JSON).accept(ContentType.JSON).when()
 				.post(path));
 		// Reset for next build

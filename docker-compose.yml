@@ -1,0 +1,16 @@
+version: '3.8'
+services:
+  db:
+    image: bddfun-database
+    container_name: bddfun-db
+    environment:
+      POSTGRES_DB: bddfun
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5432:5432"
+    healthcheck:
+      test: ["CMD", "pg_isready", "-U", "postgres"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
