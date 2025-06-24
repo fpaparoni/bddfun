@@ -5,20 +5,20 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.6.7</version>
+		<version>3.2.6</version>
 	</parent>
 	<groupId>com.javastaff.bddfun</groupId>
 	<artifactId>project</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 
 	<properties>
-		<java.version>11</java.version>
-		<spring-boot-version>2.6.7</spring-boot-version>
-		<lombok.version>1.18.20</lombok.version>
+		<java.version>21</java.version>
+		<spring-boot-version>3.2.6</spring-boot-version>
+		<lombok.version>1.18.30</lombok.version>
 		<maven.compiler.source>${java.version}</maven.compiler.source>
 		<maven.compiler.target>${java.version}</maven.compiler.target>
-		<springdoc.version>1.5.2</springdoc.version>
-		<rest-assured.version>4.5.1</rest-assured.version>
+		<springdoc.version>2.3.0</springdoc.version>
+		<rest-assured.version>5.4.0</rest-assured.version>
 	</properties>
 
 	<dependencyManagement>
@@ -87,14 +87,6 @@
 		</dependency>
 		<!-- CUCUMBER - END -->
 
-		<!-- OpenApi - START -->
-		<dependency>
-			<groupId>org.springdoc</groupId>
-			<artifactId>springdoc-openapi-ui</artifactId>
-			<version>1.5.12</version>
-		</dependency>
-		<!-- OpenApi - END -->
-
 		<!-- JUNIT - START -->
 		<dependency>
 			<groupId>org.junit.platform</groupId>
@@ -150,6 +142,13 @@
 			<version>1.16.3</version>
 			<scope>test</scope>
 		</dependency>
+		<!-- OpenApi - START -->
+		<dependency>
+			<groupId>io.swagger.core.v3</groupId>
+			<artifactId>swagger-annotations</artifactId>
+			<version>2.2.21</version>
+		</dependency>
+		<!-- OpenApi - END -->
 	</dependencies>
 
 	<build>
